@@ -6,3 +6,4 @@ pytest-sugar
 tox
 flake8
 mock
+twine
