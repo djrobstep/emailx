@@ -1,0 +1,8 @@
+-e .
+
+pytest
+pytest-cov
+pytest-sugar
+tox
+flake8
+mock
