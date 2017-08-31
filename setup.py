@@ -8,7 +8,7 @@ readme = io.open('README.md').read()
 
 setup(
     name='emailx',
-    version='0.1.1504076508',
+    version='0.1.1504223903',
     url='https://github.com/djrobstep/emailx',
     description='easy as hell email sending for python',
     long_description=readme,
