@@ -1,7 +1,7 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from emailx import smtp_connection, Email, Recipient, recipients_as_unicode, emailsplit, HISTORY
+from emailx import smtp_connection, Email, Recipient, recipients_as_unicode, emailsplit
 from mock import patch
 
 
@@ -86,7 +86,7 @@ def test_emailer():
 
             message_as_string = m.MSG.as_string()
 
+            assert str(m) == m.MSG.as_string()
+
             assert 'x.binary' in message_as_string
             assert 'blah.csv' in message_as_string
-
-        assert len(HISTORY) == 1

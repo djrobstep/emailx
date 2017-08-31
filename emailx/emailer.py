@@ -139,10 +139,7 @@ class Email(object):
         return format_recipients(self.RECIPIENTS)
 
     def __str__(self):
-        return str(self.encode('utf-8'))
-
-
-HISTORY = []
+        return self.MSG.as_string()
 
 
 class SmtpConnection(object):
@@ -160,8 +157,6 @@ class SmtpConnection(object):
         self.dummy_recipients = dummy_recipients
 
     def send(self, email):
-        global HISTORY
-
         if self.dummy_send_only:
             to_addrs = self.dummy_recipients
         else:
@@ -178,8 +173,6 @@ class SmtpConnection(object):
 
         params['email'] = email
         params['specified_to_addrs'] = email.to_addresses
-
-        HISTORY.append(params)
 
 
 @contextmanager
