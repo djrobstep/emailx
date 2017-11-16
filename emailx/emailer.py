@@ -208,7 +208,7 @@ class Email(object):
             try:
                 return x.formatted
             except AttributeError:
-                return str(x)
+                return to_text(x)
 
         j = {
             _: process(getattr(self, _))
