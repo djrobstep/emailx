@@ -1,1 +1,1 @@
-from .emailer import smtp_connection, Email, Recipient, recipients_as_unicode, emailsplit  # noqa
+from .emailer import smtp_connection, Email, Recipient, Recipients, recipients_as_unicode, emailsplit  # noqa

@@ -8,14 +8,14 @@ def listify(x):
     if is_textual(x):
         return x.split(',')
     else:
-        return x
+        return x or []
 
 
 def is_textual(x):
     return isinstance(x, six.string_types) or isinstance(x, six.binary_type)
 
 
-def to_text(x):
+def to_text(x, strict=False):
     if isinstance(x, six.text_type):
         return x
 
@@ -23,10 +23,12 @@ def to_text(x):
         return x.decode('utf-8')
 
     else:
-        return unicode(x)
+        if not strict:
+            return x
+        raise ValueError('expected either text or bytes, is neither')
 
 
-def to_bytes(x):
+def to_bytes(x, strict=False):
     if isinstance(x, six.text_type):
         return x.encode('utf-8')
 
@@ -34,7 +36,9 @@ def to_bytes(x):
         return x
 
     else:
-        return unicode(x).encode('utf-8')
+        if not strict:
+            return x
+        raise ValueError('expected either text or bytes, is neither')
 
 
 if six.PY3:
